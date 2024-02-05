@@ -1,4 +1,4 @@
-package credit.application.system.entities
+package credit.application.system.enummerations
 
 enum class Status {
     IN_PROGRESS, APPROVED, REJECTED
