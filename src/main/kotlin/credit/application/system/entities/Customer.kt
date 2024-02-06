@@ -3,8 +3,8 @@ package credit.application.system.entities
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "clients")
-data class Costumer(
+@Table(name = "customers")
+data class Customer (
     @Column(nullable = false)
     var firstName: String = "",
 

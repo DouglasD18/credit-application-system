@@ -5,8 +5,10 @@ spring:
     password: pass
 
   jpa:
+    show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      properties:
+        hibernate.format_sql: true
 
   h2:
     console:
