@@ -8,7 +8,7 @@ import java.util.*
 
 @Service
 class CreditService(
-    private  val repository: CreditRepository
+    private  val repository: CreditRepository,
     private val customerService: CustomerService
 ): ICreditService {
     override fun save(credit: Credit): Credit {
