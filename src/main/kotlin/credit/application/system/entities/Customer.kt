@@ -13,7 +13,7 @@ data class Customer (
     var lastName: String = "",
 
     @Column(nullable = false, unique = true)
-    val cpf: String,
+    var cpf: String = "",
 
     @Column(nullable = false, unique = true)
     var email: String = "",
@@ -30,10 +30,10 @@ data class Customer (
     @Column(nullable = false) @OneToMany(
         fetch = FetchType.LAZY,
         cascade = arrayOf(CascadeType.REMOVE, CascadeType.PERSIST),
-        mappedBy = "costumer"
+        mappedBy = "customer"
     )
     var credits: List<Credit> = mutableListOf(),
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null
+    var id: Long? = null
 )
