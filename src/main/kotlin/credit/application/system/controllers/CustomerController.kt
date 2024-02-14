@@ -4,6 +4,7 @@ import credit.application.system.dtos.CustomerDTO
 import credit.application.system.dtos.CustomerView
 import credit.application.system.entities.Customer
 import credit.application.system.services.impl.CustomerService
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -28,5 +29,8 @@ class CustomerController(
         val customer: Customer = this.customerService.findById(id)
         return CustomerView(customer)
     }
+
+    @DeleteMapping("/{id}")
+    fun deleteCustomer(@PathVariable id: Long) = this.customerService.delete(id)
 
 }
