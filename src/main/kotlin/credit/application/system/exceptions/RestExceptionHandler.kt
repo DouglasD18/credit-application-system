@@ -39,10 +39,36 @@ class RestExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(ExceptionDetails(
             title = "Conflict",
             timestamp = LocalDateTime.now(),
-            status = HttpStatus.BAD_REQUEST.value(),
+            status = HttpStatus.CONFLICT.value(),
             exception = exception.javaClass.toString(),
             details = mutableMapOf(exception.cause.toString() to exception.message)
         ))
+    }
+
+    @ExceptionHandler(BusinessException::class)
+    fun validExceptionHandler(exception: BusinessException): ResponseEntity<ExceptionDetails> {
+        return ResponseEntity(
+            ExceptionDetails(
+                title = "NotFound",
+                timestamp = LocalDateTime.now(),
+                status = HttpStatus.NOT_FOUND.value(),
+                exception = exception.javaClass.toString(),
+                details = mutableMapOf(exception.cause.toString() to exception.message)
+            ), HttpStatus.NOT_FOUND
+        )
+    }
+
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun validExceptionHandler(exception: IllegalArgumentException): ResponseEntity<ExceptionDetails> {
+        return ResponseEntity(
+            ExceptionDetails(
+                title = "Bad Request",
+                timestamp = LocalDateTime.now(),
+                status = HttpStatus.BAD_REQUEST.value(),
+                exception = exception.javaClass.toString(),
+                details = mutableMapOf(exception.cause.toString() to exception.message)
+            ), HttpStatus.BAD_REQUEST
+        )
     }
 
 }
