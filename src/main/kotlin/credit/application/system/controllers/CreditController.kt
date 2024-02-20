@@ -21,7 +21,7 @@ import java.util.UUID
 import java.util.stream.Collectors
 
 @RestController
-@RequestMapping("/api/credit")
+@RequestMapping("/api/credits")
 class CreditController(
     private val creditService: CreditService
 ) {
