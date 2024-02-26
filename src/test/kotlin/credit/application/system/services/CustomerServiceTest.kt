@@ -72,7 +72,7 @@ class CustomerServiceTest {
         //then
         Assertions.assertThatExceptionOfType(BusinessException::class.java)
             .isThrownBy { customerService.findById(fakeId) }
-            .withMessage("Id $fakeId not found")
+            .withMessage("Id $fakeId not found!")
         verify(exactly = 1) { customerRepository.findById(fakeId) }
     }
 

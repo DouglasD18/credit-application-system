@@ -1,3 +1,3 @@
 package credit.application.system.exceptions
 
-data class BusinessException(override val message: String): RuntimeException(message)
+data class BusinessException(override val message: String?): RuntimeException(message)
